@@ -11,6 +11,11 @@
 		BA4514CA2C8970CF0074B66A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514C92C8970CF0074B66A /* ContentView.swift */; };
 		BA4514CC2C8970D00074B66A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA4514CB2C8970D00074B66A /* Assets.xcassets */; };
 		BA4514CF2C8970D00074B66A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA4514CE2C8970D00074B66A /* Preview Assets.xcassets */; };
+		BA4514D82C89855A0074B66A /* NonBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514D72C89855A0074B66A /* NonBottomButtons.swift */; };
+		BA4514DA2C899B3D0074B66A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514D92C899B3D0074B66A /* CustomTabBar.swift */; };
+		BA4514DC2C899F570074B66A /* CustomTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DB2C899F570074B66A /* CustomTopBar.swift */; };
+		BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DD2C89A2A90074B66A /* TitleView.swift */; };
+		BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DF2C89A5380074B66A /* SectionScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		BA4514C92C8970CF0074B66A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BA4514CB2C8970D00074B66A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA4514CE2C8970D00074B66A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BA4514D72C89855A0074B66A /* NonBottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBottomButtons.swift; sourceTree = "<group>"; };
+		BA4514D92C899B3D0074B66A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		BA4514DB2C899F570074B66A /* CustomTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBar.swift; sourceTree = "<group>"; };
+		BA4514DD2C89A2A90074B66A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		BA4514DF2C89A5380074B66A /* SectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			children = (
 				BA4514C72C8970CF0074B66A /* iNavigationApp.swift */,
 				BA4514C92C8970CF0074B66A /* ContentView.swift */,
+				BA4514D52C8974BA0074B66A /* Src */,
 				BA4514CB2C8970D00074B66A /* Assets.xcassets */,
 				BA4514CD2C8970D00074B66A /* Preview Content */,
 			);
@@ -65,6 +76,26 @@
 				BA4514CE2C8970D00074B66A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA4514D52C8974BA0074B66A /* Src */ = {
+			isa = PBXGroup;
+			children = (
+				BA4514D62C8974D40074B66A /* Feature */,
+			);
+			path = Src;
+			sourceTree = "<group>";
+		};
+		BA4514D62C8974D40074B66A /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				BA4514D72C89855A0074B66A /* NonBottomButtons.swift */,
+				BA4514D92C899B3D0074B66A /* CustomTabBar.swift */,
+				BA4514DB2C899F570074B66A /* CustomTopBar.swift */,
+				BA4514DD2C89A2A90074B66A /* TitleView.swift */,
+				BA4514DF2C89A5380074B66A /* SectionScreen.swift */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +169,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA4514CA2C8970CF0074B66A /* ContentView.swift in Sources */,
+				BA4514DC2C899F570074B66A /* CustomTopBar.swift in Sources */,
 				BA4514C82C8970CF0074B66A /* iNavigationApp.swift in Sources */,
+				BA4514DA2C899B3D0074B66A /* CustomTabBar.swift in Sources */,
+				BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */,
+				BA4514D82C89855A0074B66A /* NonBottomButtons.swift in Sources */,
+				BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
