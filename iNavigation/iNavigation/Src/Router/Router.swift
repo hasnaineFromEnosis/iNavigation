@@ -23,7 +23,13 @@ class Router: ObservableObject {
     
     // Used by views to navigate to another view
     func navigateTo(_ appRoute: Route) {
-        path.append(appRoute)
+        if isBottomNavigation(appRoute) {
+            popToRoot()
+        }
+        
+        if appRoute != .BottomNavigation(selectedTab: .home) {
+            path.append(appRoute)
+        }
     }
     
     // Used to go back to the previous screen
@@ -34,7 +40,17 @@ class Router: ObservableObject {
     }
     
     // Pop to the root screen in our hierarchy
-    func popToRoot() {
+    private func popToRoot() {
         path.removeLast(path.count)
+    }
+    
+    private func isBottomNavigation(_ appRoute: Route) -> Bool {
+        for tabValue in Tab.allCases {
+            if appRoute == .BottomNavigation(selectedTab: tabValue) {
+                return true
+            }
+        }
+        
+        return false
     }
 }
