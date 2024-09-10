@@ -8,27 +8,41 @@
 import SwiftUI
 
 struct SectionSecreen: View {
-    @Binding var selectedTab: Tab
+    @EnvironmentObject var router: Router
+
+    private var titleText: String
+    private var showBottomNavButton: Bool
+    
+    init(titleText: String, showBottomNavButton: Bool = true) {
+        self.titleText = titleText
+        self.showBottomNavButton = showBottomNavButton
+    }
+    
     var body: some View {
         VStack(spacing: 44) {
-            TitleView(selectedTab: $selectedTab)
-            NonBottomButtons(selectedTab: $selectedTab)
+            TitleView(titleText: titleText)
+            NonBottomButtons(showBottomNavButton: showBottomNavButton)
+                .environmentObject(router)
         }
     }
 }
 
 #Preview {
-    SectionSecreen(selectedTab: .constant(.home))
+    SectionSecreen(titleText: Tab.home.title)
+        .environmentObject(Router())
 }
 
 #Preview {
-    SectionSecreen(selectedTab: .constant(.search))
+    SectionSecreen(titleText: Tab.search.title)
+        .environmentObject(Router())
 }
 
 #Preview {
-    SectionSecreen(selectedTab: .constant(.notifications))
+    SectionSecreen(titleText: Tab.notifications.title)
+        .environmentObject(Router())
 }
 
 #Preview {
-    SectionSecreen(selectedTab: .constant(.profile))
+    SectionSecreen(titleText: Tab.profile.title)
+        .environmentObject(Router())
 }

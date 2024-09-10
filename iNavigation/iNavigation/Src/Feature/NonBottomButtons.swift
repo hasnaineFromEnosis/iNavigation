@@ -8,37 +8,29 @@
 import SwiftUI
 
 struct NonBottomButtons: View {
-    @Binding var selectedTab: Tab
+    @EnvironmentObject var router: Router
+    
+    private var showBottomNavButton: Bool
+    
+    init(showBottomNavButton: Bool) {
+        self.showBottomNavButton = showBottomNavButton
+    }
     
     var body: some View {
         VStack(spacing: 30) {
             VStack(spacing: 10) {
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
+                ForEach(NonBottomTab.allCases, id: \.self) { tabValue in
+                    NonBottomSingleButton(text: tabValue.title) {
+                        self.router.navigateTo(Route.NonBottomNavigation(selectedTab: tabValue))
+                    }
                 }
             }
             
             VStack(spacing: 10) {
-                NonBottomSingleButton(text: Tab.home.title) {
-                    selectedTab = .home
-                }
-                NonBottomSingleButton(text: Tab.search.title) {
-                    selectedTab = .search
-                }
-                NonBottomSingleButton(text: Tab.notifications.title) {
-                    selectedTab = .notifications
-                }
-                NonBottomSingleButton(text: Tab.profile.title) {
-                    selectedTab = .profile
+                ForEach(Tab.allCases, id: \.self) { tabValue in
+                    NonBottomSingleButton(text: tabValue.title) {
+                        self.router.navigateTo(Route.BottomNavigation(selectedTab:tabValue))
+                    }
                 }
             }
         }
@@ -74,5 +66,5 @@ struct NonBottomSingleButtonView: View {
 }
 
 #Preview {
-    NonBottomButtons(selectedTab: .constant(.home))
+    NonBottomButtons(showBottomNavButton: false)
 }
