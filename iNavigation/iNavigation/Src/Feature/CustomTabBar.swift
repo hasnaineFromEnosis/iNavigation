@@ -24,7 +24,11 @@ enum Tab {
 }
 
 struct CustomTabBar: View {
-    @Binding var selectedTab: Tab
+    private var selectedTab: Tab
+    
+    init(selectedTab: Tab) {
+        self.selectedTab = selectedTab
+    }
     
     private var activeColor: Color {
         return Color.brown
@@ -50,7 +54,7 @@ struct CustomTabBar: View {
     
     private func tabBarItem(tab: Tab, imageName: String, title: String) -> some View {
         Button(action: {
-            selectedTab = tab
+            // selectedTab = tab
         }) {
             VStack {
                 Image(systemName: imageName)
@@ -67,9 +71,9 @@ struct CustomTabBar: View {
 
 #Preview {
     Group {
-        CustomTabBar(selectedTab: .constant(.home))
-        CustomTabBar(selectedTab: .constant(.search))
-        CustomTabBar(selectedTab: .constant(.notifications))
-        CustomTabBar(selectedTab: .constant(.profile))
+        CustomTabBar(selectedTab: .home)
+        CustomTabBar(selectedTab: .search)
+        CustomTabBar(selectedTab: .notifications)
+        CustomTabBar(selectedTab: .profile)
     }
 }

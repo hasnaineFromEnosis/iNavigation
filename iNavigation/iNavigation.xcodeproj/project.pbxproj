@@ -17,6 +17,8 @@
 		BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DD2C89A2A90074B66A /* TitleView.swift */; };
 		BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DF2C89A5380074B66A /* SectionScreen.swift */; };
 		BA4514EC2C904A070074B66A /* SectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514EB2C904A070074B66A /* SectionContent.swift */; };
+		BA4514EF2C904C600074B66A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514EE2C904C600074B66A /* Router.swift */; };
+		BA4514F12C90557D0074B66A /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514F02C90557D0074B66A /* RouterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		BA4514DD2C89A2A90074B66A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		BA4514DF2C89A5380074B66A /* SectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionScreen.swift; sourceTree = "<group>"; };
 		BA4514EB2C904A070074B66A /* SectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionContent.swift; sourceTree = "<group>"; };
+		BA4514EE2C904C600074B66A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		BA4514F02C90557D0074B66A /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		BA4514D52C8974BA0074B66A /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				BA4514ED2C904C520074B66A /* Router */,
 				BA4514D62C8974D40074B66A /* Feature */,
 			);
 			path = Src;
@@ -99,6 +104,15 @@
 				BA4514EB2C904A070074B66A /* SectionContent.swift */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		BA4514ED2C904C520074B66A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				BA4514EE2C904C600074B66A /* Router.swift */,
+				BA4514F02C90557D0074B66A /* RouterView.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,10 +189,12 @@
 				BA4514DC2C899F570074B66A /* CustomTopBar.swift in Sources */,
 				BA4514C82C8970CF0074B66A /* iNavigationApp.swift in Sources */,
 				BA4514DA2C899B3D0074B66A /* CustomTabBar.swift in Sources */,
+				BA4514EF2C904C600074B66A /* Router.swift in Sources */,
 				BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */,
 				BA4514D82C89855A0074B66A /* NonBottomButtons.swift in Sources */,
 				BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */,
 				BA4514EC2C904A070074B66A /* SectionContent.swift in Sources */,
+				BA4514F12C90557D0074B66A /* RouterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

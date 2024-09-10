@@ -8,20 +8,31 @@
 import SwiftUI
 
 struct SectionContent: View {
-    @Binding var selectedTab: Tab
+    @EnvironmentObject var router: Router
+    
+    private var selectedTab: Tab
+    
+    init(selectedTab: Tab) {
+        self.selectedTab = selectedTab
+    }
     
     var body: some View {
         VStack {
-            CustomTopBar()
+            CustomTopBar(onGoBackPressed: {
+                self.router.navigateBack()
+            })
             Spacer()
-            SectionSecreen(selectedTab: $selectedTab)
+            SectionSecreen(selectedTab: selectedTab)
+                .environmentObject(router)
             Spacer()
-            CustomTabBar(selectedTab: $selectedTab)
+            CustomTabBar(selectedTab: selectedTab)
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 
 #Preview {
-    SectionContent(selectedTab: .constant(.notifications))
+    SectionContent(selectedTab: .notifications)
+        .environmentObject(Router())
 }
 

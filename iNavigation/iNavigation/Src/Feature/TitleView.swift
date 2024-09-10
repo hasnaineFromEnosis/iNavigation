@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct TitleView: View {
-    @Binding var selectedTab: Tab
+    private var selectedTab: Tab
+    
+    init(selectedTab: Tab) {
+        self.selectedTab = selectedTab
+    }
     
     var body: some View {
         VStack(spacing: 4) {
@@ -39,9 +43,9 @@ struct TitleView: View {
 
 #Preview {
     Group {
-        TitleView(selectedTab: .constant(.home))
-        TitleView(selectedTab: .constant(.profile))
-        TitleView(selectedTab: .constant(.notifications))
-        TitleView(selectedTab: .constant(.search))
+        TitleView(selectedTab: .home)
+        TitleView(selectedTab: .profile)
+        TitleView(selectedTab: .notifications)
+        TitleView(selectedTab: .search)
     }
 }

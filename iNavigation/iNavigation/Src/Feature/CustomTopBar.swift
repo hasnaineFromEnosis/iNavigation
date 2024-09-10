@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CustomTopBar: View {
+    var onGoBackPressed: () -> ()
+    
     var body: some View {
         HStack {
             Button(action: {
-                // Action for the back button
-                // For example, dismiss the current view
-                // presentationMode.wrappedValue.dismiss()
+                self.onGoBackPressed()
             }) {
                 HStack(spacing: 10) {
                     Image(systemName: "arrow.left")
@@ -31,5 +31,7 @@ struct CustomTopBar: View {
 }
 
 #Preview {
-    CustomTopBar()
+    CustomTopBar(onGoBackPressed: {
+        print("Go Back Pressed")
+    })
 }

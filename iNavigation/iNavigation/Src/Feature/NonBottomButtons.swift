@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct NonBottomButtons: View {
-    @Binding var selectedTab: Tab
+    @EnvironmentObject var router: Router
+    
+    private var selectedTab: Tab
+    
+    init(selectedTab: Tab) {
+        self.selectedTab = selectedTab
+    }
     
     var body: some View {
         VStack(spacing: 30) {
@@ -29,16 +35,16 @@ struct NonBottomButtons: View {
             
             VStack(spacing: 10) {
                 NonBottomSingleButton(text: Tab.home.title) {
-                    selectedTab = .home
+                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.home))
                 }
                 NonBottomSingleButton(text: Tab.search.title) {
-                    selectedTab = .search
+                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.search))
                 }
                 NonBottomSingleButton(text: Tab.notifications.title) {
-                    selectedTab = .notifications
+                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.notifications))
                 }
                 NonBottomSingleButton(text: Tab.profile.title) {
-                    selectedTab = .profile
+                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.profile))
                 }
             }
         }
@@ -74,5 +80,5 @@ struct NonBottomSingleButtonView: View {
 }
 
 #Preview {
-    NonBottomButtons(selectedTab: .constant(.home))
+    NonBottomButtons(selectedTab: .home)
 }
