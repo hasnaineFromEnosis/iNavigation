@@ -7,23 +7,9 @@
 
 import SwiftUI
 
-enum Tab {
-    case home
-    case search
-    case notifications
-    case profile
-    
-    var title: String {
-        return switch self {
-        case .home: "Home"
-        case .search: "Search"
-        case .notifications: "Notification"
-        case .profile: "Profile"
-        }
-    }
-}
-
 struct CustomTabBar: View {
+    @EnvironmentObject var router: Router
+    
     private var selectedTab: Tab
     
     init(selectedTab: Tab) {
@@ -54,7 +40,7 @@ struct CustomTabBar: View {
     
     private func tabBarItem(tab: Tab, imageName: String, title: String) -> some View {
         Button(action: {
-            // selectedTab = tab
+            self.router.navigateTo(Route.BottomNavigation(selectedTab: tab))
         }) {
             VStack {
                 Image(systemName: imageName)
@@ -72,8 +58,12 @@ struct CustomTabBar: View {
 #Preview {
     Group {
         CustomTabBar(selectedTab: .home)
+            .environmentObject(Router())
         CustomTabBar(selectedTab: .search)
+            .environmentObject(Router())
         CustomTabBar(selectedTab: .notifications)
+            .environmentObject(Router())
         CustomTabBar(selectedTab: .profile)
+            .environmentObject(Router())
     }
 }

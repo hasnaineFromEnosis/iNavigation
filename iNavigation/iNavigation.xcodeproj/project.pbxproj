@@ -16,9 +16,11 @@
 		BA4514DC2C899F570074B66A /* CustomTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DB2C899F570074B66A /* CustomTopBar.swift */; };
 		BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DD2C89A2A90074B66A /* TitleView.swift */; };
 		BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514DF2C89A5380074B66A /* SectionScreen.swift */; };
-		BA4514EC2C904A070074B66A /* SectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514EB2C904A070074B66A /* SectionContent.swift */; };
+		BA4514EC2C904A070074B66A /* BottomSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514EB2C904A070074B66A /* BottomSectionContent.swift */; };
 		BA4514EF2C904C600074B66A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514EE2C904C600074B66A /* Router.swift */; };
 		BA4514F12C90557D0074B66A /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514F02C90557D0074B66A /* RouterView.swift */; };
+		BA4514F42C906B420074B66A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514F32C906B420074B66A /* Enums.swift */; };
+		BA4514F62C906EDD0074B66A /* NonBottomSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4514F52C906EDD0074B66A /* NonBottomSectionContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +34,11 @@
 		BA4514DB2C899F570074B66A /* CustomTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBar.swift; sourceTree = "<group>"; };
 		BA4514DD2C89A2A90074B66A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		BA4514DF2C89A5380074B66A /* SectionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionScreen.swift; sourceTree = "<group>"; };
-		BA4514EB2C904A070074B66A /* SectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionContent.swift; sourceTree = "<group>"; };
+		BA4514EB2C904A070074B66A /* BottomSectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSectionContent.swift; sourceTree = "<group>"; };
 		BA4514EE2C904C600074B66A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BA4514F02C90557D0074B66A /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		BA4514F32C906B420074B66A /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		BA4514F52C906EDD0074B66A /* NonBottomSectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBottomSectionContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		BA4514D52C8974BA0074B66A /* Src */ = {
 			isa = PBXGroup;
 			children = (
+				BA4514F22C906B330074B66A /* Utilities */,
 				BA4514ED2C904C520074B66A /* Router */,
 				BA4514D62C8974D40074B66A /* Feature */,
 			);
@@ -96,12 +101,12 @@
 		BA4514D62C8974D40074B66A /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				BA4514F72C9072EE0074B66A /* SectionContent */,
 				BA4514D72C89855A0074B66A /* NonBottomButtons.swift */,
 				BA4514D92C899B3D0074B66A /* CustomTabBar.swift */,
 				BA4514DB2C899F570074B66A /* CustomTopBar.swift */,
 				BA4514DD2C89A2A90074B66A /* TitleView.swift */,
 				BA4514DF2C89A5380074B66A /* SectionScreen.swift */,
-				BA4514EB2C904A070074B66A /* SectionContent.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -113,6 +118,23 @@
 				BA4514F02C90557D0074B66A /* RouterView.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		BA4514F22C906B330074B66A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BA4514F32C906B420074B66A /* Enums.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BA4514F72C9072EE0074B66A /* SectionContent */ = {
+			isa = PBXGroup;
+			children = (
+				BA4514EB2C904A070074B66A /* BottomSectionContent.swift */,
+				BA4514F52C906EDD0074B66A /* NonBottomSectionContent.swift */,
+			);
+			path = SectionContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +215,10 @@
 				BA4514E02C89A5380074B66A /* SectionScreen.swift in Sources */,
 				BA4514D82C89855A0074B66A /* NonBottomButtons.swift in Sources */,
 				BA4514DE2C89A2A90074B66A /* TitleView.swift in Sources */,
-				BA4514EC2C904A070074B66A /* SectionContent.swift in Sources */,
+				BA4514F62C906EDD0074B66A /* NonBottomSectionContent.swift in Sources */,
+				BA4514EC2C904A070074B66A /* BottomSectionContent.swift in Sources */,
 				BA4514F12C90557D0074B66A /* RouterView.swift in Sources */,
+				BA4514F42C906B420074B66A /* Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

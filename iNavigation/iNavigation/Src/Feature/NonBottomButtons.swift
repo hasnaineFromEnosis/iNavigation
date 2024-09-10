@@ -10,41 +10,27 @@ import SwiftUI
 struct NonBottomButtons: View {
     @EnvironmentObject var router: Router
     
-    private var selectedTab: Tab
+    private var showBottomNavButton: Bool
     
-    init(selectedTab: Tab) {
-        self.selectedTab = selectedTab
+    init(showBottomNavButton: Bool) {
+        self.showBottomNavButton = showBottomNavButton
     }
     
     var body: some View {
         VStack(spacing: 30) {
             VStack(spacing: 10) {
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
-                }
-                NonBottomSingleButton(text: "Yo") {
-                    
+                ForEach(NonBottomTab.allCases, id: \.self) { tabValue in
+                    NonBottomSingleButton(text: tabValue.title) {
+                        self.router.navigateTo(Route.NonBottomNavigation(selectedTab: tabValue))
+                    }
                 }
             }
             
             VStack(spacing: 10) {
-                NonBottomSingleButton(text: Tab.home.title) {
-                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.home))
-                }
-                NonBottomSingleButton(text: Tab.search.title) {
-                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.search))
-                }
-                NonBottomSingleButton(text: Tab.notifications.title) {
-                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.notifications))
-                }
-                NonBottomSingleButton(text: Tab.profile.title) {
-                    self.router.navigateTo(Route.BottomNavigation(selectedTab: Tab.profile))
+                ForEach(Tab.allCases, id: \.self) { tabValue in
+                    NonBottomSingleButton(text: tabValue.title) {
+                        self.router.navigateTo(Route.BottomNavigation(selectedTab:tabValue))
+                    }
                 }
             }
         }
@@ -80,5 +66,5 @@ struct NonBottomSingleButtonView: View {
 }
 
 #Preview {
-    NonBottomButtons(selectedTab: .home)
+    NonBottomButtons(showBottomNavButton: false)
 }

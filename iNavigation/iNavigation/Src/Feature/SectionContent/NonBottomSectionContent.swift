@@ -1,5 +1,5 @@
 //
-//  SectionContent.swift
+//  NonBottomSectionContent.swift
 //  iNavigation
 //
 //  Created by Shahwat Hasnaine on 9/10/24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct SectionContent: View {
+struct NonBottomSectionContent: View {
     @EnvironmentObject var router: Router
     
-    private var selectedTab: Tab
+    private var selectedTab: NonBottomTab
     
-    init(selectedTab: Tab) {
+    init(selectedTab: NonBottomTab) {
         self.selectedTab = selectedTab
     }
     
@@ -22,17 +22,15 @@ struct SectionContent: View {
                 self.router.navigateBack()
             })
             Spacer()
-            SectionSecreen(selectedTab: selectedTab)
+            SectionSecreen(titleText: selectedTab.title, showBottomNavButton: false)
                 .environmentObject(router)
             Spacer()
-            CustomTabBar(selectedTab: selectedTab)
         }
         .toolbar(.hidden, for: .navigationBar)
     }
 }
 
 #Preview {
-    SectionContent(selectedTab: .notifications)
+    NonBottomSectionContent(selectedTab: .pageA)
         .environmentObject(Router())
 }
-

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TitleView: View {
-    private var selectedTab: Tab
+    private var titleText: String
     
-    init(selectedTab: Tab) {
-        self.selectedTab = selectedTab
+    init(titleText: String) {
+        self.titleText = titleText
     }
     
     var body: some View {
@@ -20,7 +20,7 @@ struct TitleView: View {
                 .font(.title3)
                 .foregroundColor(.brown.opacity(0.7))
             
-            Text(selectedTab.title + " View")
+            Text(titleText + " View")
                 .font(.largeTitle.bold())
                 .foregroundColor(.brown)
                 .shadow(color: .gray.opacity(0.5), radius: 2, x: 0, y: 2)
@@ -43,9 +43,9 @@ struct TitleView: View {
 
 #Preview {
     Group {
-        TitleView(selectedTab: .home)
-        TitleView(selectedTab: .profile)
-        TitleView(selectedTab: .notifications)
-        TitleView(selectedTab: .search)
+        TitleView(titleText: Tab.home.title)
+        TitleView(titleText: Tab.profile.title)
+        TitleView(titleText: Tab.notifications.title)
+        TitleView(titleText: Tab.search.title)
     }
 }

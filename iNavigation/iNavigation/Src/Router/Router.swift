@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-// Contains the possible destinations in our Router
-enum Route: Hashable {
-    case BottomNavigation(selectedTab: Tab)
-}
-
 class Router: ObservableObject {
     // Used to programatically control our navigation stack
     @Published var path: NavigationPath = NavigationPath()
@@ -20,7 +15,9 @@ class Router: ObservableObject {
     @ViewBuilder func view(for route: Route) -> some View {
         switch route {
         case .BottomNavigation(selectedTab: let selectedTab):
-            SectionContent(selectedTab: selectedTab)
+            BottomSectionContent(selectedTab: selectedTab)
+        case .NonBottomNavigation(selectedTab: let selectedTab):
+            NonBottomSectionContent(selectedTab: selectedTab)
         }
     }
     
