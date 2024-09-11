@@ -7,24 +7,20 @@
 
 import SwiftUI
 
-// View containing the necessary SwiftUI
-// code to utilize a NavigationStack for
-// navigation accross our views.
-struct RouterView<Content: View>: View {
+// Main view using RouterView
+struct RouterView: View {
     @StateObject var router: Router = Router()
-    // Our root view content
-    private let content: Content
-    
-    init(@ViewBuilder content: @escaping () -> Content) {
-        self.content = content()
-    }
-    
+
     var body: some View {
-        NavigationStack(path: $router.path) {
-            content
-                .navigationDestination(for: Route.self) { route in
-                    router.view(for: route)
-                }
+        Group {
+            switch router.currentRoute {
+            case .BottomNavigation(let selectedTab):
+                BottomSectionContent(selectedTab: selectedTab)
+                    .transition(.move(edge: .leading))
+            case .NonBottomNavigation(let selectedTab):
+                NonBottomSectionContent(selectedTab: selectedTab)
+                    .transition(.move(edge: .trailing))
+            }
         }
         .environmentObject(router)
     }

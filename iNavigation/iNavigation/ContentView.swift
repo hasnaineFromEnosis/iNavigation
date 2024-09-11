@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     var body: some View {
-        RouterView {
-            BottomSectionContent(selectedTab: .home)
-        }
+        RouterView()
     }
 }
 

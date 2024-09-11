@@ -8,49 +8,43 @@
 import SwiftUI
 
 class Router: ObservableObject {
-    // Used to programatically control our navigation stack
-    @Published var path: NavigationPath = NavigationPath()
-    
-    // Builds the views
-    @ViewBuilder func view(for route: Route) -> some View {
-        switch route {
-        case .BottomNavigation(selectedTab: let selectedTab):
-            BottomSectionContent(selectedTab: selectedTab)
-        case .NonBottomNavigation(selectedTab: let selectedTab):
-            NonBottomSectionContent(selectedTab: selectedTab)
-        }
+    @Published private(set) var path: [Route] = [.BottomNavigation(selectedTab: .home)]
+
+    var currentRoute: Route {
+        path.last ?? .BottomNavigation(selectedTab: .home)
     }
-    
-    // Used by views to navigate to another view
-    func navigateTo(_ appRoute: Route) {
-        if isBottomNavigation(appRoute) {
+
+    // Push a new route onto the stack
+    func navigateTo(_ route: Route) {
+        if isBottomNavigation(route) {
             popToRoot()
         }
-        
-        if appRoute != .BottomNavigation(selectedTab: .home) {
-            path.append(appRoute)
-        }
-    }
-    
-    // Used to go back to the previous screen
-    func navigateBack() {
-        if !path.isEmpty {
-            path.removeLast()
-        }
-    }
-    
-    // Pop to the root screen in our hierarchy
-    private func popToRoot() {
-        path.removeLast(path.count)
-    }
-    
-    private func isBottomNavigation(_ appRoute: Route) -> Bool {
-        for tabValue in Tab.allCases {
-            if appRoute == .BottomNavigation(selectedTab: tabValue) {
-                return true
+        withAnimation(.easeInOut) {
+            if path.isEmpty || path.last != route {
+                path.append(route)
             }
         }
-        
-        return false
+    }
+
+    // Pop the last route off the stack
+    func navigateBack() {
+        withAnimation(.easeInOut) {
+            if path.count > 1 {
+                path.removeLast()
+            }
+        }
+    }
+
+    // Pop to the root route (home)
+    private func popToRoot() {
+        withAnimation(.easeInOut) {
+            path = [.BottomNavigation(selectedTab: .home)]
+        }
+    }
+
+    private func isBottomNavigation(_ route: Route) -> Bool {
+        Tab.allCases.contains { tab in
+            route == .BottomNavigation(selectedTab: tab)
+        }
     }
 }
